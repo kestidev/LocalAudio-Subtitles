@@ -14,6 +14,11 @@ export type SubtitleData = {
     Macro: string?,
 }
 
+export type Theme = {
+    Font: Enum.Font,
+    BackgroundColor: Color3,
+}
+
 export type SubtitleSpeaker = {
     Color: Color3?,
     DisplayName: string?,

@@ -4,7 +4,8 @@
 local EventTransform = require(script:WaitForChild("EventTransform"))
 local Types = require(script:WaitForChild("LocalAudioSubtitlesTypes"))
 local LocalAudio = require(script:WaitForChild("Packages"):WaitForChild("LocalAudio"))
-local SubtitleWindow = require(script:WaitForChild("UI"):WaitForChild("SubtitleWindow")).new()
+local Theme = require(script:WaitForChild("UI"):WaitForChild("Theme"))
+local SubtitleWindow = nil
 
 local LocalAudioSubtitles = {
     MinimumSubtitleLevel = 0,
@@ -35,7 +36,13 @@ end
 --[[
 Sets up the subtitles with LocalAudio.
 --]]
-function LocalAudioSubtitles.SetUp(self: LocalAudioSubtitles, SubtitlesData: Types.SubtitleDataModule): ()
+function LocalAudioSubtitles.SetUp(self: LocalAudioSubtitles, SubtitlesData: Types.SubtitleDataModule, ThemeOverrides: Types.Theme): ()
+    --Apply the theme overrides.
+    Theme:ApplyOverrides(ThemeOverrides)
+
+    --Initialize the subtitle window.
+    SubtitleWindow = require(script:WaitForChild("UI"):WaitForChild("SubtitleWindow")).new()
+
     --Transform the subtitles.
     local AudioData = LocalAudio.AudioData
     if SubtitlesData then

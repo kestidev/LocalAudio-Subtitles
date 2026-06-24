@@ -16,6 +16,7 @@ local SubtitleEntry = require(script.Parent:WaitForChild("SubtitleEntry"))
 local SubtitleEntryCollection = require(script.Parent:WaitForChild("SubtitleEntryCollection"))
 local Fusion = require(script.Parent.Parent:WaitForChild("Packages"):WaitForChild("Fusion"))
 local NexusVRCore = require(script.Parent.Parent:WaitForChild("Packages"):WaitForChild("NexusVRCore"))
+local Theme = require(script.Parent:WaitForChild("Theme"))
 
 local Children = Fusion.Children
 
@@ -98,7 +99,7 @@ function SubtitleWindow.new(): SubtitleWindow
                     return UDim2.new(0, UI_CORNER_RELATIVE * use(TextSize), 1, use(Entry.YOffset) - BOTTOM_MARGIN_PIXEL)
                 end), PropertyTween),
                 BackgroundTransparency = 1,
-                Font = Enum.Font.SourceSans,
+                Font = Theme:Font(),
                 Text = Entry.DisplayMessage,
                 RichText = true,
                 TextColor3 = Color3.fromRGB(255, 255, 255),
@@ -196,7 +197,7 @@ function SubtitleWindow.new(): SubtitleWindow
                     --Background.
                     Scope:New("Frame")({
                         AnchorPoint = Vector2.new(0, 1),
-                        BackgroundColor3 = Color3.fromRGB(0, 0, 0),
+                        BackgroundColor3 = Theme:BackgroundColor(),
                         BackgroundTransparency = BackgroundTransparency,
                         BorderSizePixel = 0,
                         Position = UDim2.new(0, 0, 1, 0),
