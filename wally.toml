@@ -1,5 +1,5 @@
 [package]
-name = "iitpp-roblox/localaudio-subtitles"
+name = "kestidev/localaudio-subtitles"
 repository = "https://github.com/IITPP-Roblox/LocalAudio-Subtitles"
 description = "User interface extension for LocalAudio for adding subtitles."
 license = "MIT"
