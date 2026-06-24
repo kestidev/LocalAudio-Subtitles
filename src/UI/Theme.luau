@@ -13,6 +13,7 @@ function Theme:Font()
 end
 
 function Theme:ApplyOverrides(Overrides: LocalAudioSubtitlesTypes.Theme)
+    if not Overrides then return end
     Theme._Font = Overrides.Font or Enum.Font.SourceSans
     Theme._BackgroundColor = Overrides.BackgroundColor or Color3.fromRGB(0,0,0)
 end
